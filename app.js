@@ -1,20 +1,17 @@
 const express = require('express')
-const app = express()
-const exphbs = require('express-handlebars')
 // dotenv
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-
+const exphbs = require('express-handlebars')
+const routes = require('./routes')
 const PORT = process.env.PORT
+const app = express()
 
 // hbs
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
 
 
 
@@ -24,8 +21,9 @@ app.get('/', (req, res) => {
 
 
 
-
+// router
+app.use(routes)
 
 app.listen(PORT, () => {
-  console.log(`app is on port ${PORT}.`)
+  console.log(`Express is listening on localhost:${PORT}`)
 })
