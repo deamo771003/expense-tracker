@@ -6,10 +6,10 @@ const bcrypt = require('bcryptjs')
 module.exports = app => {
   // 初始化passport
   app.use(passport.initialize())
-  app.use(passport.session)
+  app.use(passport.session())
 
   // 設定登入策略
-  passport.use(new localStrategy({ usernameField: 'email' }, (email, password, done) => {
+  passport.use('localStrategy', new localStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email })
       .then(user => {
         if (!user) {

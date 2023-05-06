@@ -10,10 +10,23 @@
 </head>
 
 <body class="bg-light">
-  <header class="bg-primary">
-    <nav class="navbar navbar-dark justify-content-between px-4">
-      <a class="navbar-brand" href="/">
-        Todo List
+  <header class="bg-light">
+    <nav class="navbar navbar-light justify-content-between px-4">
+      <a class="navbar-brand ms-4" href="/">
+        家庭記帳本
+      </a>
+      {{#if inAuthenticated}}
+      <a class="navbar-brand me-4" href="/users/logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        LOGOUT
+      </a>
+      {{else}}
+      <a class="navbar-brand me-4" href="/users/login">
+        <i class="fa-solid fa-right-to-bracket"></i>
+        LOGIN
+      </a>
+      {{/if}}
+
     </nav>
   </header>
 

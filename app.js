@@ -11,7 +11,7 @@ const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 require('./config/mongoose')
 const session = require('express-session')
-const bcrypt = require('bcryptjs')
+// const bcrypt = require('bcryptjs')
 const usePassport = require('./config/passport')
 
 // hbs
@@ -21,7 +21,7 @@ app.set('view engine', 'hbs')
 // express-session
 app.use(session({
   secret: 'ThisIsMySecret',
-  resave: 'false',
+  resave: false,
   saveUninitialized: true
 }))
 
