@@ -1,1 +1,37 @@
-<h1>register page</h1>
+<div class="row ">
+  <div class="col-md-4 mt-5 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center">Register</h1>
+      {{> message}}
+      <form action="/users/register" method="POST">
+        <div class="mb-3">
+          <label class="mb-2" for="name">name</label>
+          <input class="form-control" type="text" id="name" name="name" placeholder="Jim..." value="{{name}}">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2" for="email">Email</label>
+          <input class="form-control" type="text" id="email" name="email" placeholder="email@example.com..."
+            value="{{email}}">
+        </div>
+        <div class="mb-3">
+          <label class="mb-2" for="password">Password</label>
+          <input class="form-control" type="text" id="password" name="password" placeholder="password..."
+            value="{{password}}">
+        </div>
+        <div class="mb-4">
+          <label class="mb-2" for="confirmPassword">Confirm Password</label>
+          <input class="form-control" type="text" id="confirmPassword" name="confirmPassword"
+            placeholder="confirmPassword..." value="{{confirmPassword}}">
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="submit">
+            Register
+          </button>
+          <p class="lead mt-2">
+            Have an Account?<a class="login" href="/users/login"> Login</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
