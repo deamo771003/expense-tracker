@@ -1,7 +1,7 @@
 {{!-- connect-flash function --}}
 {{!-- success logout --}}
 {{#if success_msg}}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
   {{{success_msg}}}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>
@@ -10,8 +10,16 @@
 
 {{!-- warning must be login --}}
 {{#if warning_msg}}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
   {{{warning_msg}}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+  </button>
+</div>
+{{/if}}
+
+{{#if messages}}
+<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+  Email 或 Password 輸入錯誤!
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>
 </div>
@@ -20,7 +28,7 @@
 {{!-- 參考 routes/users.js router.post('/register' --}}
 {{#if errors}}
 {{#each errors}}
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
   {{ this.message }}
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
   </button>

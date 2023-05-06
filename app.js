@@ -26,11 +26,11 @@ app.use(session({
   saveUninitialized: true
 }))
 
-// passport
-usePassport(app)
-
 // connect-flash
 app.use(flash())
+
+// passport
+usePassport(app)
 
 // body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -41,7 +41,7 @@ app.use(methodOverride('_method'))
 // 導入public內的.css
 app.use(express.static('public'))
 
-// run routes前檢查驗證 代表這組 middleware 會作用於所有的路由
+// middleware 檢查驗證、connect-flash
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated() // 把 req.isAuthenticated() 回傳的布林值，交接給 res 使用
   res.locals.user = req.user // 把user給res使用
