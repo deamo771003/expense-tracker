@@ -1,5 +1,5 @@
 const passport = require('passport')
-const localStrategy = require('passport').Strategy
+const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 
@@ -9,7 +9,7 @@ module.exports = app => {
   app.use(passport.session())
 
   // 設定登入策略
-  passport.use('localStrategy', new localStrategy({ usernameField: 'email' }, (email, password, done) => {
+  passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email })
       .then(user => {
         if (!user) {
@@ -34,7 +34,7 @@ module.exports = app => {
 
   // 反序列化 根據session裡的id從資料庫找物件
   passport.deserializeUser((id, done) => {
-    User.finById(id)
+    User.findById(id)
       .lean()
       .then(user => done(null, user))
       .catch(err => done(err, null))

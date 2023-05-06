@@ -13,15 +13,16 @@
   <header class="bg-light">
     <nav class="navbar navbar-light justify-content-between px-4">
       <a class="navbar-brand ms-4" href="/">
+        {{#if isAuthenticated}}{{ user.name }}{{/if}}
         家庭記帳本
       </a>
-      {{#if inAuthenticated}}
+      {{#if isAuthenticated}}
       <a class="navbar-brand me-4" href="/users/logout">
         <i class="fa-solid fa-right-from-bracket"></i>
         LOGOUT
       </a>
       {{else}}
-      <a class="navbar-brand me-4" href="/users/login">
+      <a class="navbar-brand me-5" href="/users/login">
         <i class="fa-solid fa-right-to-bracket"></i>
         LOGIN
       </a>
