@@ -1,3 +1,12 @@
-.register,.login {
+.register,.login,a {
   text-decoration: none;
+  color: inherit;
+}
+
+.expense-card:nth-child(odd) {
+  background-color: rgb(233, 233, 233);
+}
+
+.expense-card:nth-child(even) {
+  background-color: rgb(255, 255, 255);
 }
