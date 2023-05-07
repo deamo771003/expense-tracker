@@ -34,6 +34,17 @@ router.get('/:id/edit', async (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .then(record => {
+      Object.assign(record, req.body)
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(error))
+})
+
 // delete
 router.delete('/:id/delete', (req, res) => {
   const id = req.params.id
