@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
   }
 })
 
+// filter
 router.get('/filter', async (req, res) => {
   const userId = req.user._id
   let total = 0

@@ -7,8 +7,8 @@ const recordSchema = new Schema({ //資料屬性
     required: true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    required: true
   },
   amount: {
     type: Number,

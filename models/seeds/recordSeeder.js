@@ -35,12 +35,14 @@ db.once('open', () => {
       await Record.create({
         name: '午餐',
         amount: '200',
+        date: '2023-05-06',
         userId: userId,
         categoryId: categoryNameOne._id
       })
       await Record.create({
         name: '汽車',
         amount: '9999',
+        date: '2023-05-05',
         userId: userId,
         categoryId: categoryNameTwo._id
       })

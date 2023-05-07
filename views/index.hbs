@@ -14,6 +14,7 @@
           </select>
         </div>
       </form>
+
       {{!-- 總金額卡s --}}
       <div class="row mb-5">
         <div class="col-4">
@@ -30,7 +31,7 @@
       <div class="expense-card mb-3">
         <div class="row g-0">
 
-          <div class="col-3 d-flex align-items-center justify-content-center">
+          <div class="col-2 d-flex align-items-center justify-content-center">
             <i class="{{this.categoryId.icon}}"></i>
           </div>
 
@@ -41,13 +42,19 @@
             </div>
           </div>
 
-          <div class="col-4 d-flex align-items-center justify-content-end me-0">
-            <div class="card-body">
-              <p class="card-text text-end">
-                <a class="me-3" href="">修改</a>
-                <a class="me-3" href="">刪除</a>
-              </p>
-            </div>
+          <div class="col-5 d-flex align-items-center justify-content-end me-0">
+            <form action="/records/{{this._id}}/delete?_method=DELETE" method="POST">
+              <div class="card-body">
+                <p class="card-text text-end">
+                  <span class="me-3">{{this.amount}}</span>
+
+                  <a class="me-2" href="/records/{{this._id}}/edit">修改</a>
+                  <button class="index-delete-button" type="submit">
+                    刪除
+                  </button>
+                </p>
+              </div>
+            </form>
           </div>
 
         </div>

@@ -14,10 +14,23 @@ const session = require('express-session')
 // const bcrypt = require('bcryptjs')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
+const handlebars = require('handlebars')
 
 // hbs
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
+
+// handlebars eq function
+// === function
+handlebars.registerHelper('eq', function (a, b) {
+  return a === b
+})
+handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+  if (arg1 == null || arg2 == null) {
+    return options.inverse(this);
+  }
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
 
 // express-session
 app.use(session({

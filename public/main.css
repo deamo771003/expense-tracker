@@ -10,3 +10,9 @@
 .expense-card:nth-child(even) {
   background-color: rgb(255, 255, 255);
 }
+
+.index-delete-button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}

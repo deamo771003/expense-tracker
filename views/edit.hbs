@@ -1,0 +1,101 @@
+<div class="row ">
+  <div class="col-md-5 mt-5 m-auto">
+    <div class="card card-body">
+      {{!-- 列s --}}
+      <div class="row mt-5">
+
+        <div class="col-3 d-flex justify-content-end align-items-center">
+          <p style="font-size: 10px;">*必填欄位</p>
+        </div>
+
+        <div class="col-8 d-flex justify-content-center">
+          <p style="font-size: 20px;">請輸入你的支出</p>
+        </div>
+
+      </div>
+      {{!-- 列e --}}
+
+      {{!-- 列s --}}
+      <form action="/records/new" method="POST">
+        <div class="row mt-5">
+
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <p style="font-size: 10px;">名稱*：</p>
+          </div>
+
+          <div class="col-8" style="margin-top: -10px;">
+            <input class="form-control" type="text" id="name" name="name" placeholder="午餐 ..." value="{{record.name}}">
+          </div>
+
+        </div>
+        {{!-- 列e --}}
+        {{!-- 列s --}}
+        <div class="row mt-5">
+
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <p style="font-size: 10px;">日期*：</p>
+          </div>
+
+          <div class="col-8" style="margin-top: -10px;">
+            <input class="form-control" type="date" id="date" name="date" placeholder="2019 / 04 / 23 ..."
+              value="{{record.date}}">
+          </div>
+
+        </div>
+        {{!-- 列e --}}
+        {{!-- 列s --}}
+        <div class="row mt-5">
+
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <p style="font-size: 10px;">類別*：</p>
+          </div>
+
+          <div class="col-8" style="margin-top: -10px;">
+            <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
+              selectedIndex="" name="category" required>
+              <option disabled value="">類別</option>
+              {{#each category}}
+              {{#if (eq this._id ../record.categoryId)}}
+              <option value="{{this.name}}" selected>{{this.name}}</option>
+              {{else}}
+              <option value="{{this.name}}">{{this.name}}</option>
+              {{/if}}
+              {{/each}}
+            </select>
+          </div>
+
+        </div>
+        {{!-- 列e --}}
+        {{!-- 列s --}}
+        <div class="row mt-5">
+
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <p style="font-size: 10px;">金額*：</p>
+          </div>
+
+          <div class="col-8" style="margin-top: -10px;">
+            <input class="form-control" type="text" id="amount" name="amount" placeholder="123456 ..."
+              value="{{record.amount}}">
+          </div>
+
+        </div>
+        {{!-- 列e --}}
+        {{!-- 列s --}}
+        <div class="row mt-5">
+
+          <div class="col-3 d-flex justify-content-end align-items-center">
+            <p style="font-size: 10px;"></p>
+          </div>
+
+          <div class="col-8 d-grid" style="margin-top: -10px;">
+            <button class="btn btn-primary" type="submit">
+              新增支出
+            </button>
+          </div>
+
+        </div>
+      </form>
+      {{!-- 列e --}}
+    </div>
+  </div>
+</div>
