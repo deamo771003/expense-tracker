@@ -1,16 +1,16 @@
 <div class="row ">
   <div class="col-md-8 mt-5 m-auto">
     <div class="card card-body">
-      <form action="/record/sort" method="GET">
+      <form action="/sort" method="GET">
         <div class="index-sort mb-5">
           <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
             selectedIndex="" name="sort" onchange="this.form.submit()" value="{{sortSelect}}">
             <option selected disabled value="">類別</option>
-            <option value="家居物業">家居物業</option>
-            <option value="交通出行">交通出行</option>
-            <option value="休閒娛樂">休閒娛樂</option>
-            <option value="餐飲食品">餐飲食品</option>
-            <option value="其他">其他</option>
+            <option value='家居物業'>家居物業</option>
+            <option value='交通出行'>交通出行</option>
+            <option value='休閒娛樂'>休閒娛樂</option>
+            <option value='餐飲食品'>餐飲食品</option>
+            <option value='其他'>其他</option>
           </select>
         </div>
       </form>
@@ -20,24 +20,24 @@
           <h5 class="text-start">總金額:</h5>
         </div>
         <div class="col-8 mb-3">
-          <h1 class="text-end" style="font-size: 48px">12456</h1>
+          <h1 class="text-end" style="font-size: 48px">{{total}}</h1>
         </div>
       </div>
       {{!-- 總金額卡s --}}
 
       {{!-- 消費卡s --}}
+      {{#each records}}
       <div class="expense-card mb-3">
         <div class="row g-0">
 
           <div class="col-3 d-flex align-items-center justify-content-center">
-            <i class="fas fa-home fa-2xl"
-              style="background-image: url('https://fontawesome.com/icons/home?style=solid');"></i>
+            <i class="{{this.categoryId.icon}}"></i>
           </div>
 
           <div class="col-5">
             <div class="card-body">
-              <h5 class="card-title">午餐</h5>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <h5 class="card-title">{{this.name}}</h5>
+              <p class="card-text"><small class="text-muted">{{this.date}}</small></p>
             </div>
           </div>
 
@@ -52,6 +52,7 @@
 
         </div>
       </div>
+      {{/each}}
       {{!-- 消費卡e --}}
 
     </div>

@@ -30,12 +30,19 @@ db.once('open', () => {
     }))
     .then(async user => {
       const userId = user._id
-      const categoryName = await Category.findOne({ name: '餐飲食品' })
+      const categoryNameOne = await Category.findOne({ name: '餐飲食品' })
+      const categoryNameTwo = await Category.findOne({ name: '交通出行' })
       await Record.create({
         name: '午餐',
         amount: '200',
         userId: userId,
-        categoryId: categoryName._id
+        categoryId: categoryNameOne._id
+      })
+      await Record.create({
+        name: '汽車',
+        amount: '9999',
+        userId: userId,
+        categoryId: categoryNameTwo._id
       })
       console.log('done')
       process.exit()

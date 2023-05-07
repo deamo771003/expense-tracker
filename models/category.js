@@ -5,6 +5,10 @@ const categorySchema = new Schema({ //資料屬性
   name: {
     type: String,
     required: true
+  },
+  icon: {
+    type: String,
+    required: true
   }
 })
 
