@@ -24,16 +24,16 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/sort', async (req, res) => {
+router.get('/filter', async (req, res) => {
   const userId = req.user._id
   let total = 0
-  // 只顯示sortSelect的categoryId商品:
-  // 抓出sortSelect
-  const sortSelect = req.query.sort
+  // 只顯示filterSelect的categoryId商品:
+  // 抓出filterSelect
+  const filterSelect = req.query.filter
 
   try {
-    // 抓出與抓出sortSelect相同的category.name
-    const category = await Category.findOne({ name: sortSelect }).lean()
+    // 抓出與抓出filterSelect相同的category.name
+    const category = await Category.findOne({ name: filterSelect }).lean()
 
     // 抓出與上面 _id 相同的 Record.categoryId 
     const records = await Record.find({ userId: userId, categoryId: category._id })
@@ -46,7 +46,7 @@ router.get('/sort', async (req, res) => {
     })
 
     // 顯示 Record 該 categoryId 的所有資訊
-    res.render('index', { records, sortSelect, total })
+    res.render('index', { records, filterSelect, total })
   } catch (err) {
     console.log(err)
   }
