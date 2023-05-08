@@ -12,7 +12,7 @@ Edit:
 ![image](https://github.com/deamo771003/expense-tracker/blob/main/expense-edit.jpg)
 
 ## Features 功能
-1. 創帳號登入或使用Facebook登入
+1. 創帳號、使用者登入或使用Facebook登入
 2. 類別篩選
 3. 新增 / 刪除 / 編輯
 
