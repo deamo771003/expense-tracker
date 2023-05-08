@@ -7,7 +7,7 @@ const app = express()
 const exphbs = require('express-handlebars')
 const routes = require('./routes')
 const PORT = process.env.PORT
-const methodOverride = require('method-override')
+
 const bodyParser = require('body-parser')
 require('./config/mongoose')
 const session = require('express-session')
@@ -15,6 +15,7 @@ const session = require('express-session')
 const usePassport = require('./config/passport')
 const flash = require('connect-flash')
 const handlebars = require('handlebars')
+const methodOverride = require('method-override')
 
 // hbs
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -32,6 +33,9 @@ handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
+// method-override
+app.use(methodOverride('_method'))
+
 // express-session
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -47,9 +51,6 @@ usePassport(app)
 
 // body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
-
-// method-override
-app.use(methodOverride('_method'))
 
 // 導入public內的.css
 app.use(express.static('public'))

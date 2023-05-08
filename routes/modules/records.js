@@ -39,9 +39,9 @@ router.put('/:id', (req, res) => {
   return Record.findById(id)
     .then(record => {
       Object.assign(record, req.body)
-      return restaurant.save()
+      return record.save()
     })
-    .then(() => res.redirect(`/`))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
