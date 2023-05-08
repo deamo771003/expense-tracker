@@ -33,7 +33,7 @@ router.get('/filter', async (req, res) => {
   const filterSelect = req.query.filter
 
   try {
-    // 抓出與抓出filterSelect相同的category.name
+    // 抓出與filterSelect相同的category.name
     const category = await Category.findOne({ name: filterSelect }).lean()
 
     // 抓出與上面 _id 相同的 Record.categoryId 
@@ -42,6 +42,7 @@ router.get('/filter', async (req, res) => {
       .lean()
       .sort({ _id: 'asc' })
 
+    // category total
     records.map(record => {
       total += record.amount
     })

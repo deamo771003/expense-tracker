@@ -4,13 +4,13 @@
       <form action="/filter" method="GET">
         <div class="index-sort mb-5">
           <select class="form-select" id="validationServer02" aria-describedby="validationServer02Feedback"
-            selectedIndex="" name="filter" onchange="this.form.submit()" value="{{filterSelect}}">
-            <option selected disabled value="">類別</option>
-            <option value='家居物業'>家居物業</option>
-            <option value='交通出行'>交通出行</option>
-            <option value='休閒娛樂'>休閒娛樂</option>
-            <option value='餐飲食品'>餐飲食品</option>
-            <option value='其他'>其他</option>
+            name="filter" onchange="this.form.submit()">
+            <option {{#unless filterSelect}}selected{{/unless}} disabled value="類別">類別</option>
+            <option {{#if (eq filterSelect '家居物業' )}}selected{{/if}} value='家居物業'>家居物業</option>
+            <option {{#if (eq filterSelect '交通出行' )}}selected{{/if}} value='交通出行'>交通出行</option>
+            <option {{#if (eq filterSelect '休閒娛樂' )}}selected{{/if}} value='休閒娛樂'>休閒娛樂</option>
+            <option {{#if (eq filterSelect '餐飲食品' )}}selected{{/if}} value='餐飲食品'>餐飲食品</option>
+            <option {{#if (eq filterSelect '其他' )}}selected{{/if}} value='其他'>其他</option>
           </select>
         </div>
       </form>
