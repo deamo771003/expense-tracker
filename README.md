@@ -13,7 +13,7 @@ Edit:
 
 ## Features 功能
 1. 創帳號、使用者登入或使用Facebook登入
-2. 類別篩選
+2. 總計、類別篩選
 3. 新增 / 刪除 / 編輯
 
 ## Environment SetUp 環境建置
