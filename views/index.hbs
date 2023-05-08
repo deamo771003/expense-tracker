@@ -16,7 +16,7 @@
       </form>
 
       {{!-- 總金額卡s --}}
-      <div class="row mb-5">
+      <div class="total row mb-5">
         <div class="col-4">
           <h5 class="text-start">總金額:</h5>
         </div>
@@ -35,18 +35,18 @@
             <i class="{{this.categoryId.icon}}"></i>
           </div>
 
-          <div class="col-5">
+          <div class="col-4">
             <div class="card-body">
               <h5 class="card-title">{{this.name}}</h5>
               <p class="card-text"><small class="text-muted">{{this.date}}</small></p>
             </div>
           </div>
 
-          <div class="col-5 d-flex align-items-center justify-content-end me-0">
+          <div class="col-6 d-flex align-items-center justify-content-end me-0">
             <form action="/records/{{this._id}}/delete?_method=DELETE" method="POST">
               <div class="card-body">
                 <p class="card-text text-end">
-                  <span class="me-3">{{this.amount}}</span>
+                  <span class="me-3">NT.{{this.amount}}</span>
 
                   <a class="me-2" href="/records/{{this._id}}/edit">修改</a>
                   <button class="index-delete-button" type="submit">
