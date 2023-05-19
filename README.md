@@ -1,4 +1,4 @@
-# expense-tracker 家庭記帳本
+# Expense-Tracker 家庭記帳本
 使用Node.js + Express 打造的直覺美觀記帳本
 
 ## 專案畫面
